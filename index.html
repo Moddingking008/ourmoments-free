@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10091d">
+<title>Our Moments ♡</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#10091d;color:#fff4ff;font-family:system-ui,sans-serif}
+header{padding:22px 7%;border-bottom:1px solid #ffffff20;letter-spacing:1px;font-weight:800}
+header span{color:#ff91c8}
+.hero{text-align:center;padding:65px 20px 35px;background:radial-gradient(ellipse at top,#70408066,transparent 70%)}
+.tag{display:inline-block;padding:9px 15px;border:1px solid #ff91c866;border-radius:30px;color:#ffadd5;font-size:11px;letter-spacing:2px}
+h1{font-size:clamp(42px,10vw,70px);line-height:1.08;margin:25px 0 16px}
+h1 em{font-family:Georgia,serif;color:#ff91c8;font-weight:400}
+p{color:#c7b7d5;line-height:1.8}
+.heart{font-size:76px;margin:24px;animation:pulse 2s infinite}
+@keyframes pulse{50%{transform:scale(1.13);filter:drop-shadow(0 0 22px #ff70c8)}}
+.panel{max-width:520px;margin:0 auto 55px;padding:26px;width:92%;border:1px solid #ffffff24;border-radius:24px;background:#ffffff09;box-shadow:0 20px 60px #0005}
+h2{margin:0 0 8px}
+label{display:block;font-size:11px;letter-spacing:1px;margin:17px 0 8px;color:#e8d7f5}
+input,select,textarea{width:100%;padding:14px;border:1px solid #ffffff25;border-radius:12px;background:#1c122b;color:white;font:inherit}
+textarea{min-height:100px;resize:vertical}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+button{width:100%;margin-top:22px;padding:15px;border:0;border-radius:12px;background:linear-gradient(100deg,#ff8dc4,#c5a0ff);font-weight:800;font-size:15px;color:#24112c}
+#result{display:none;margin-top:20px;padding:18px;border:1px solid #ff91c8;border-radius:14px;overflow-wrap:anywhere}
+.features{padding:20px 6% 55px;text-align:center}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:650px;margin:25px auto}
+.card{padding:20px 12px;text-align:left;border:1px solid #ffffff20;border-radius:17px;background:#ffffff08}
+.card b{display:block;margin:12px 0}
+.card p{font-size:12px;margin:0}
+footer{text-align:center;border-top:1px solid #ffffff18;padding:25px;color:#a998b5;font-size:12px}
+@media(min-width:650px){.cards{grid-template-columns:repeat(4,1fr)}}
+</style>
+</head>
+<body>
+<header>our<span>moments</span> ♡</header>
+<section class="hero">
+<div class="tag">A LITTLE CORNER OF FOREVER</div>
+<h1>Some bonds are<br><em>made of magic.</em></h1>
+<p>Turn your favourite memories into a little world of your own.</p>
+<div class="heart">💗</div>
+</section>
+<section class="panel">
+<h2>Create your little world ✨</h2>
+<p>Make a special gift for your favourite person.</p>
+<form id="gift">
+<div class="grid">
+<div><label>YOUR NAME</label><input id="you" maxlength="40" placeholder="Your name" required></div>
+<div><label>BESTIE'S NAME</label><input id="friend" maxlength="40" placeholder="Their name" required></div>
+</div>
+<label>YOUR FRIENDSHIP</label>
+<select id="kind"><option>Best Friends</option><option>Childhood Friends</option><option>School Besties</option><option>College Friends</option><option>Online Besties</option><option>Partners in Chaos</option></select>
+<label>FRIENDSHIP SINCE</label>
+<input type="date" id="date">
+<label>A LITTLE MESSAGE</label>
+<textarea id="msg" maxlength="500" placeholder="Why are they special to you?"></textarea>
+<button type="submit">Preview Your Gift ✨ →</button>
+</form>
+<div id="result"></div>
+<p style="font-size:11px;text-align:center">Made with love ♡</p>
+</section>
+<section class="features">
+<h2>Little things, big feelings.</h2>
+<p>Every friendship deserves its own little universe.</p>
+<div class="cards">
+<div class="card"><span style="font-size:28px">📸</span><b>Memory Lane</b><p>Your favourite pictures and moments.</p></div>
+<div class="card"><span style="font-size:28px">💌</span><b>Secret Letter</b><p>A heartfelt note for your person.</p></div>
+<div class="card"><span style="font-size:28px">🧩</span><b>Photo Puzzle</b><p>A playful memory reveal.</p></div>
+<div class="card"><span style="font-size:28px">🏆</span><b>Forever Besties</b><p>A keepsake for a special bond.</p></div>
+</div>
+</section>
+<footer>Made with ♡ for your favourite human.</footer>
+<script>
+document.getElementById('gift').addEventListener('submit',function(e){
+e.preventDefault();
+const esc=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const you=esc(document.getElementById('you').value.trim());
+const friend=esc(document.getElementById('friend').value.trim());
+const kind=esc(document.getElementById('kind').value);
+const date=esc(document.getElementById('date').value);
+const msg=esc(document.getElementById('msg').value.trim());
+const r=document.getElementById('result');
+r.innerHTML='<h2>♡ A little gift for '+friend+' ♡</h2><p>From '+you+'<br>'+kind+(date?'<br>Friends since '+date:'')+'</p>'+(msg?'<p>'+msg+'</p>':'')+'<p>This is your local preview. Shareable gift links will be added in the next setup step.</p>';
+r.style.display='block';
+r.scrollIntoView({behavior:'smooth',block:'center'});
+});
+</script>
+</body>
+  </html>
+  
